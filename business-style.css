@@ -1,0 +1,54 @@
+html, body {
+    margin: 0;
+}
+html {
+    padding: 0;
+}
+body {
+    background-image: url(https://i.pinimg.com/originals/45/75/43/45754393d3b83242dd35f5de0d7cba32.jpg);
+    font-size: 1.5rem;
+    font-family: monospace;
+    padding: 1rem;
+}
+a, body {
+    color: black;
+}
+a {
+    display: inline-block;
+    background: #c0c0c0;
+    padding: 0.5rem 2rem;
+    border: outset grey 5px;
+    position: relative;
+    text-decoration: none;
+}
+a:hover, a:active {
+    border: inset grey 5px;
+    text-decoration: underline;
+}
+a:active {
+    background: #adadad;
+}
+
+p {
+    padding: 0 3rem;
+}
+.words {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 2rem); /* compensate for padding */
+}
+.words div {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 2rem;
+    }
+    .words div {
+        font-size: 3.5rem;
+    }
+}
