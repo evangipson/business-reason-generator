@@ -49,6 +49,9 @@ const techActions = [
     "standards and policies",
 ];
 
+// used to keep track of the setTimeout for auto generation
+let autoGenerateLoop = 0;
+
 function getRandomArrayItem(arr) {
     return arr[Math.floor(Math.random()*arr.length)];
 }
@@ -79,10 +82,30 @@ function setUpAudio() {
     audioElement.volume = 0.5;
 }
 
-function setUpNewPhraseButton() {
+function toggleAutoGenerate() {
+    const autoplayButton = document.getElementById("Autoplay");
+    if(autoGenerateLoop === 0) {
+        updateTechPhrase(); // update once when the user hits the button
+        autoplayButton.innerText = "Stop Generating Phrases";
+        autoGenerateLoop = setInterval(function(){
+            updateTechPhrase();
+        }, 5000);
+    }
+    else {
+        autoplayButton.innerText = "Keep Generating Phrases";
+        clearInterval(autoGenerateLoop);
+        autoGenerateLoop = 0;
+    }
+}
+
+function setUpFrontEnd() {
     document.getElementById("NewPhrase").addEventListener("click", function(e) {
         e.preventDefault();
         updateTechPhrase();
+    });
+    document.getElementById("Autoplay").addEventListener("click", function(e) {
+        e.preventDefault();
+        toggleAutoGenerate();
     });
     // say the first things first
     saySomething(document.getElementById("Introduction").innerText);
@@ -90,6 +113,6 @@ function setUpNewPhraseButton() {
 
 document.addEventListener("DOMContentLoaded", function() {
     setUpAudio();
-    setUpNewPhraseButton();
+    setUpFrontEnd();
     updateTechPhrase(); // generate the first phrase
 });
