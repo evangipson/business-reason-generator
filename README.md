@@ -1,7 +1,7 @@
 # [Business Reason Generator](http://evangipson.com/business-generator.html)
 Business Reason Generator will generate a reason to do that next big project at work.
 
-It combines spome business words defined in arrays in the source, and generates a unique phrase everytime!
+It combines some business words defined in arrays in the source, and generates a unique phrase everytime!
 
 | Business Reason Generator Readme |
 |---|
